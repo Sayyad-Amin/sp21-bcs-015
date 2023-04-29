@@ -29,7 +29,7 @@ class ResumePage extends StatelessWidget {
               Container(
                 child: Row(
                   children: [
-                    Image.asset('assets/images/photo1.png',width: 200,height: 200,),
+                    Image.asset('assets/images/photo2.png',width: 200,height: 200,),
                     Column(
                       children: [
                         Text('SAYYAD AMIN',
