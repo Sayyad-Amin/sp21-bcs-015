@@ -6,7 +6,9 @@ A brief description of Resume App and how it is built using Flutter, C++ and Dar
 
 ## Screenshots
 
-![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/97822048/235361706-40788889-d32e-4cd5-bc9e-62891cb01584.gif)
+![ezgif com-video-to-gif (4)](https://user-images.githubusercontent.com/97822048/235361857-bfd43f5d-b7fb-45e6-a56b-81962d4a55c5.gif)
+
+
 
 
 
