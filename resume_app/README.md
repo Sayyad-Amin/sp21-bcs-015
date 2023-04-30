@@ -1,16 +1,27 @@
-# resume_app
 
-A new Flutter project.
+# Resume App
 
-## Getting Started
+A brief description of Resume App and how it is built using Flutter, C++ and Dart . . .
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/97822048/235361706-40788889-d32e-4cd5-bc9e-62891cb01584.gif)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## Tech Stack
+
+**Client:** Flutter, Dart, C++
+
+**IDE :** Android Studio
+
+
+## Widgets Used
+
+- Card Widget
+- Row & Column Widget
+- Container
+- Padding, Sized Box, SingleChildScrollView Widget
+- Icon Widget
+
