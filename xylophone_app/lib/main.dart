@@ -6,6 +6,7 @@ class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Resume App',
       theme: ThemeData(
         primarySwatch: Colors.purple,
@@ -19,11 +20,85 @@ class XylophonePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('XyloPhone App'),
+        title: Text('XyloPhone App',style: TextStyle(fontSize: 25),),
       ),
       body: Column(
         children: [
-          SizedBox(height: 20,color,),
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(height: 60,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(borderRadius:
+                BorderRadius.circular(25),color: Colors.orange,),
+              ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(height: 60,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(borderRadius:
+                BorderRadius.circular(25),color: Colors.green),
+              ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(height: 60,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(borderRadius:
+                BorderRadius.circular(25),color: Colors.pink),
+              ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(height: 60,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(borderRadius:
+                BorderRadius.circular(25),color: Colors.blueGrey),
+              ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(height: 60,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(borderRadius:
+                BorderRadius.circular(25),color: Colors.blue),
+              ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(height: 60,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(borderRadius:
+                BorderRadius.circular(25),color: Colors.teal),
+              ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(height: 60,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(borderRadius:
+                BorderRadius.circular(25),color: Colors.red),
+              ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(height: 60,
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(borderRadius:
+                BorderRadius.circular(25),color: Colors.deepPurpleAccent),
+              ),),
+          ),
+
+
 
 
         ],
