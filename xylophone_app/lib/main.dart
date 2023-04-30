@@ -20,7 +20,7 @@ class XylophonePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('XyloPhone App',style: TextStyle(fontSize: 25),),
+        title: Text('XyloPhone App',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),),
       ),
       body: Column(
         children: [
