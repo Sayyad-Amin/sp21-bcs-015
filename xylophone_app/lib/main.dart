@@ -29,10 +29,15 @@ class XylophonePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: SizedBox(height: 60,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(borderRadius:
-                BorderRadius.circular(25),color: Colors.orange,),
+              child: InkWell(
+                onTap:(){
+                  
+                },
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(borderRadius:
+                  BorderRadius.circular(25),color: Colors.orange,),
+                ),
               ),),
           ),
           Padding(
