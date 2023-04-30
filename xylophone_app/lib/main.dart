@@ -23,91 +23,94 @@ class XylophonePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('XyloPhone App',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(height: 60,
-              child: InkWell(
-                onTap:(){
-                  
-                },
+      body: SingleChildScrollView(
+
+        child: Column(
+          children: [
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(height: 60,
+                child: InkWell(
+                  onTap:(){
+                    print('Hellow World...');
+                  },
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(borderRadius:
+                    BorderRadius.circular(25),color: Colors.orange,),
+                  ),
+                ),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(height: 60,
                 child: Container(
                   height: 50,
                   decoration: BoxDecoration(borderRadius:
-                  BorderRadius.circular(25),color: Colors.orange,),
-                ),
-              ),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(height: 60,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(borderRadius:
-                BorderRadius.circular(25),color: Colors.green),
-              ),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(height: 60,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(borderRadius:
-                BorderRadius.circular(25),color: Colors.pink),
-              ),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(height: 60,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(borderRadius:
-                BorderRadius.circular(25),color: Colors.blueGrey),
-              ),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(height: 60,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(borderRadius:
-                BorderRadius.circular(25),color: Colors.blue),
-              ),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(height: 60,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(borderRadius:
-                BorderRadius.circular(25),color: Colors.teal),
-              ),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(height: 60,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(borderRadius:
-                BorderRadius.circular(25),color: Colors.red),
-              ),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(height: 60,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(borderRadius:
-                BorderRadius.circular(25),color: Colors.deepPurpleAccent),
-              ),),
-          ),
+                  BorderRadius.circular(25),color: Colors.green),
+                ),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(height: 60,
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(borderRadius:
+                  BorderRadius.circular(25),color: Colors.pink),
+                ),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(height: 60,
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(borderRadius:
+                  BorderRadius.circular(25),color: Colors.blueGrey),
+                ),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(height: 60,
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(borderRadius:
+                  BorderRadius.circular(25),color: Colors.blue),
+                ),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(height: 60,
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(borderRadius:
+                  BorderRadius.circular(25),color: Colors.teal),
+                ),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(height: 60,
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(borderRadius:
+                  BorderRadius.circular(25),color: Colors.red),
+                ),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(height: 60,
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(borderRadius:
+                  BorderRadius.circular(25),color: Colors.deepPurpleAccent),
+                ),),
+            ),
 
 
 
 
-        ],
+          ],
+        ),
       ),
     );
   }
