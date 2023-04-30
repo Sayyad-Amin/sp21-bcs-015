@@ -23,9 +23,9 @@ class XylophonePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('XyloPhone App',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),),
       ),
-      body: SingleChildScrollView(
+      body: ListView(
 
-        child: Column(
+        children: [Column(
           children: [
             SizedBox(height: 20),
             Padding(
@@ -109,8 +109,9 @@ class XylophonePage extends StatelessWidget {
 
 
 
+
           ],
-        ),
+        ),]
       ),
     );
   }
