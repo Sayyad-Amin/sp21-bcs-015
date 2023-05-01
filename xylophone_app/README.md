@@ -1,16 +1,21 @@
-# xylophone_app
 
-A new Flutter project.
+# XyloPhone App
 
-## Getting Started
+A brief description of XyloPhone App and how it is built using Flutter,C++ and Dart . . .
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img width="210" alt="Screenshot_1" src="https://user-images.githubusercontent.com/97822048/235407600-8c563ceb-b7e5-47ac-860a-cf6eb206c18b.png">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## Tech Stack
+
+**Client:** Flutter, Dart, C++
+
+**IDE :** Android Studio
+
+
+
+
