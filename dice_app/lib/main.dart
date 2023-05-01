@@ -4,34 +4,42 @@ import 'package:flutter/material.dart';
 void main(){
   runApp(dice_app());
 }
-class dice_app extends StatelessWidget {
+class dice_app  extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dice App',
+      debugShowCheckedModeBanner: false,
+    title: 'Dice App',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.teal,
       ),
       home: dicePage(),
     );
   }
 }
-class dicePage extends StatelessWidget {
-  const dicePage({Key? key}) : super(key: key);
 
+class dicePage  extends StatefulWidget {
+
+  @override
+  State<dicePage> createState() => _dice_appState();
+}
+class _dice_appState extends State<dicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dice App'),
-
       ),
       body: Container(
-        width: 200,
-        height: 200,
-        color: Colors.deepPurple,
+        width: 100,
+        height: 100,
+        color: Colors.teal,
       ),
     );
   }
 }
+
+
 
