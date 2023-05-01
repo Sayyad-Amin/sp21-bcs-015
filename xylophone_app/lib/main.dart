@@ -32,8 +32,12 @@ class XylophonePage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: SizedBox(height: 60,
                 child: InkWell(
-                  onTap:(){
-                    print('Hellow World...');
+                  onTap: ()  {
+                    final assetsAudioPlayer = AssetsAudioPlayer();
+
+                    assetsAudioPlayer.open(
+                      Audio("assets/audio/xylo1.mp3"),
+                    );
                   },
                   child: Container(
                     height: 50,
@@ -105,6 +109,7 @@ class XylophonePage extends StatelessWidget {
                   BorderRadius.circular(25),color: Colors.deepPurpleAccent),
                 ),),
             ),
+
 
 
 
