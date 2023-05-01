@@ -7,8 +7,27 @@ void main(){
 class dice_app extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        AppBar
+    return MaterialApp(
+      title: 'Dice App',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: dicePage(),
     );
   }
 }
+class dicePage extends StatelessWidget {
+  const dicePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dice App'),
+
+      ),
+      body: ,
+    );
+  }
+}
+
