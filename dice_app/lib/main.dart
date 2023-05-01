@@ -26,7 +26,11 @@ class dicePage extends StatelessWidget {
         title: Text('Dice App'),
 
       ),
-      body: ,
+      body: Container(
+        width: 200,
+        height: 200,
+        color: Colors.deepPurple,
+      ),
     );
   }
 }
