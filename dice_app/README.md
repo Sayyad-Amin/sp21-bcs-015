@@ -1,16 +1,20 @@
-# dice_app
 
-A new Flutter project.
+# Dice App
 
-## Getting Started
+A brief description of Dice App and how it is built using Flutter, C++ and Dart . . .
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img width="182" alt="Screenshot_2" src="https://user-images.githubusercontent.com/97822048/235582304-dec740c0-118d-4784-a139-8b75eb6f8a41.png">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## Tech Stack
+
+**Client:** Flutter, Dart, C++
+
+**IDE :** Android Studio
+
+
+
