@@ -32,6 +32,11 @@ A brief description of XyloPhone App and how it is built using Flutter, C++ and 
 
 <img width="210" alt="Screenshot_1" src="https://user-images.githubusercontent.com/97822048/235407765-bb4bd3ee-1e8a-4cbe-911f-6b892c8d4256.png">
 
+# Dice App
+
+A brief description of Dice App and how it is built using Flutter, C++ and Dart . . .
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/97822048/235617780-139461c6-bed6-40cc-8564-33506d93bf33.gif)
 
 
 
