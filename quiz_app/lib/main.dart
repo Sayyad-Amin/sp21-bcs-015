@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/Question1.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,20 +37,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text('Quiz App'),
       ),
-      body: Container(
-        width: 400,
-        height: 400,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25)),
-        child: Column(
-          children: [
-            Text('Golden Era of Islam',
-              style: TextStyle(fontSize: 25),),
-            SizedBox(height: 20),
-            ElevatedButton(onPressed: (){
-
-            }, child: Text('Start Quiz..'))
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Container(
+          width: 400,
+          height: 550,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(35),
+              color: Colors.teal),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Golden Era of Islam',
+                style: TextStyle(fontSize: 35),),
+              SizedBox(height: 25),
+              ElevatedButton(onPressed: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context){
+                      return Question1();
+                }));
+              }, child: Text('Start Quiz..',
+                style: TextStyle(fontSize: 25),))
+            ],
+          ),
         ),
       )
 
