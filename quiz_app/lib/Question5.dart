@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'ResultPage.dart';
+
 class Question5 extends StatelessWidget {
 
   @override
@@ -18,31 +20,33 @@ class Question5 extends StatelessWidget {
               borderRadius: BorderRadius.circular(35),
               color: Colors.teal),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Islam has pillars..',
-                style: TextStyle(fontSize: 35),),
+              Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Text('Islam has pillars..',
+                  style: TextStyle(fontSize: 35),),
+              ),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return Question2();
+                  return ResultPage();
                 }));
               }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+                style: TextStyle(fontSize: 35),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return Question2();
+                  return ResultPage();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('6',
+                style: TextStyle(fontSize: 35),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return Question2();
+                  return ResultPage();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('4',
+                style: TextStyle(fontSize: 35),)),
             ],
           ),
         ),

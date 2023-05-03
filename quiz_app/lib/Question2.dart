@@ -19,31 +19,33 @@ class Question2 extends StatelessWidget {
               borderRadius: BorderRadius.circular(35),
               color: Colors.teal),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Islam has pillars..',
-                style: TextStyle(fontSize: 35),),
+              Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Text('Which city became the center of learning during the Golden Age of Islam?',
+                  style: TextStyle(fontSize: 35),),
+              ),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question3();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Baghdad',
+                style: TextStyle(fontSize: 30),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question3();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Cairo',
+                style: TextStyle(fontSize: 30),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question3();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Qurtba (Spain)',
+                style: TextStyle(fontSize: 30),)),
             ],
           ),
         ),

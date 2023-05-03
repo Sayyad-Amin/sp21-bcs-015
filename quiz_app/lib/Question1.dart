@@ -20,31 +20,33 @@ class Question1 extends StatelessWidget {
               borderRadius: BorderRadius.circular(35),
               color: Colors.teal),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Islam has pillars..',
-                style: TextStyle(fontSize: 35),),
+              Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Text('Which famous Islamic monument was built during the Golden Age of Islam?',
+                  style: TextStyle(fontSize: 35),),
+              ),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question2();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Hagia Sophia',
+                style: TextStyle(fontSize: 30),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question2();
                 }));
-              }, child: Text('6',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Taj Mahal',
+                style: TextStyle(fontSize: 30),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question2();
                 }));
-              }, child: Text('3',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Dome of Rock',
+                style: TextStyle(fontSize: 30),)),
             ],
           ),
         ),

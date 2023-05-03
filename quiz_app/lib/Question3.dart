@@ -19,31 +19,33 @@ class Question3 extends StatelessWidget {
               borderRadius: BorderRadius.circular(35),
               color: Colors.teal),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Islam has pillars..',
-                style: TextStyle(fontSize: 35),),
+              Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Text('Who was the most famous scientist of the Islamic Golden Age?',
+                  style: TextStyle(fontSize: 35),),
+              ),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question4();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Al-Khwarizmi',
+                style: TextStyle(fontSize: 30),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question4();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Ibn Sina',
+                style: TextStyle(fontSize: 30),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Question4();
                 }));
-              }, child: Text('5',
-                style: TextStyle(fontSize: 25),)),
+              }, child: Text('Al-Ghazali',
+                style: TextStyle(fontSize: 30),)),
             ],
           ),
         ),
