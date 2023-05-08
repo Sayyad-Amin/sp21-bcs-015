@@ -14,7 +14,7 @@ class _Splash_screenState extends State<Splash_screen> {
     super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-        return MyHomePage(title: 'Table Genrator',);
+        return MyHomePage();
       }));
     });
   }

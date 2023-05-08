@@ -35,7 +35,8 @@ class Question1 extends StatelessWidget {
                 style: TextStyle(fontSize: 30),)),
               SizedBox(height: 25),
               ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context){
                   return Question2();
                 }));
               }, child: Text('Taj Mahal',
