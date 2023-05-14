@@ -31,16 +31,6 @@ class _MyHomePageState extends State<MyHomePage> {
   var massText=TextEditingController();
   var heightText=TextEditingController();
    var bmiBody=0.0;
-  double mass=0,height=0;
-  double bmi(mass,height){
-    double bodymassindex=mass/(sqrt(height));
-    return bodymassindex;
-  }
-  void table(int num){
-    for(int i=1;i<=10;i++){
-      print('$num * $i = ${num*i}');
-    }
-  }
 
 
   @override
