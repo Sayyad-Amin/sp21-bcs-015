@@ -47,16 +47,38 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: 400,
-        color: Colors.teal,
+        color: Colors.teal.shade200,
         child: Column(
-
+        mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('Mass Of Your Body:',
+              style: TextStyle(fontSize: 25),),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25)
+                  )
+              ),style: TextStyle(fontSize: 25),),
+            ),
+              Text('Height Of Your Body:',
+                style: TextStyle(fontSize: 25),),
               Padding(
-                padding: const EdgeInsets.only(top: 48.0),
-                child: Text('BMI Of Your Body:',
-                      style: TextStyle(fontSize: 35),),
+                padding: const EdgeInsets.all(18.0),
+                child: TextField(decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25)
+                  )
+                ),style: TextStyle(fontSize: 25),),
               ),
-            SizedBox(height: 25,),
+              SizedBox(height: 10),
+              ElevatedButton(onPressed: (){},
+                  child: Text('Calculate',
+                    style: TextStyle(fontSize: 25),)),
+              SizedBox(height: 15),
+              Text('BMI Of Your Body:',
+                    style: TextStyle(fontSize: 35),),
+            SizedBox(height: 15,),
 
             Text('${bmi(60, 5.7)}',style: TextStyle(fontSize: 38),)
           ],
