@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.teal,
@@ -27,6 +28,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var massText=TextEditingController();
+  var heightText=TextEditingController();
+   String bmiBody='';
   double mass=0,height=0;
   double bmi(mass,height){
     double bodymassindex=mass/(sqrt(height));
@@ -49,13 +53,13 @@ class _MyHomePageState extends State<MyHomePage> {
         width: 400,
         color: Colors.teal.shade200,
         child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 30),
             Text('Mass Of Your Body:',
               style: TextStyle(fontSize: 25),),
             Padding(
               padding: const EdgeInsets.all(18.0),
-              child: TextField(decoration: InputDecoration(
+              child: TextField(controller: massText,decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25)
                   )
@@ -65,22 +69,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 25),),
               Padding(
                 padding: const EdgeInsets.all(18.0),
-                child: TextField(decoration: InputDecoration(
+                child: TextField(controller: heightText,decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25)
                   )
                 ),style: TextStyle(fontSize: 25),),
               ),
-              SizedBox(height: 10),
-              ElevatedButton(onPressed: (){},
-                  child: Text('Calculate',
-                    style: TextStyle(fontSize: 25),)),
-              SizedBox(height: 15),
-              Text('BMI Of Your Body:',
-                    style: TextStyle(fontSize: 35),),
-            SizedBox(height: 15,),
+              ElevatedButton(onPressed: (){
+                var mass=int.parse(massText.text.toString());
+                var height=int.parse(heightText.text.toString());
+                bmiBody="Bmi Of Your Body\n ${mass/(sqrt(height))}";
+                setState(() {
 
-            Text('${bmi(60, 5.7)}',style: TextStyle(fontSize: 38),)
+                });
+              },
+                  child: Text('Calculate',
+                    style: TextStyle(fontSize: 25))),
+              SizedBox(height: 15),
+              Text(bmiBody,style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),)
           ],
         ),
       )
