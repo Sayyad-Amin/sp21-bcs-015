@@ -30,7 +30,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var massText=TextEditingController();
   var heightText=TextEditingController();
-   String bmiBody='';
+   var bmiBody=0.0;
   double mass=0,height=0;
   double bmi(mass,height){
     double bodymassindex=mass/(sqrt(height));
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI App'),
+        title: Text('BMI App',style: TextStyle(fontSize: 25),),
       ),
       body: Container(
         width: 400,
@@ -56,29 +56,29 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             SizedBox(height: 30),
             Text('Mass Of Your Body:',
-              style: TextStyle(fontSize: 25),),
+              style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(controller: massText,decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25)
                   )
-              ),style: TextStyle(fontSize: 25),),
+              ),style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),),
             ),
               Text('Height Of Your Body:',
-                style: TextStyle(fontSize: 25),),
+                style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),),
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: TextField(controller: heightText,decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25)
                   )
-                ),style: TextStyle(fontSize: 25),),
+                ),style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),),
               ),
               ElevatedButton(onPressed: (){
-                var mass=int.parse(massText.text.toString());
-                var height=int.parse(heightText.text.toString());
-                bmiBody="Bmi Of Your Body\n ${mass/(sqrt(height))}";
+                var mass=double.parse(massText.text.toString());
+                var height=double.parse(heightText.text.toString());
+                bmiBody=mass/(sqrt(height));
                 setState(() {
 
                 });
@@ -86,7 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text('Calculate',
                     style: TextStyle(fontSize: 25))),
               SizedBox(height: 15),
-              Text(bmiBody,style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),)
+            Text('BMI Of Your Body',
+              style: TextStyle(fontSize: 25,
+                  fontWeight: FontWeight.w500),),
+              SizedBox(height: 15),
+              Text('$bmiBody',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),)
           ],
         ),
       )
