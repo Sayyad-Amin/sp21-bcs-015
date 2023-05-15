@@ -38,6 +38,11 @@ A brief description of Dice App and how it is built using Flutter, C++ and Dart 
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/97822048/235617780-139461c6-bed6-40cc-8564-33506d93bf33.gif)
 
+# BMI App
+
+A brief description of BMI App and how it is built using Flutter, C++ and Dart . . .
+
+![ezgif com-video-to-gif (1)](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/23640d14-77b6-4b58-a423-07e424e11579)
 
 
 ## Tech Stack
