@@ -1,16 +1,26 @@
-# bmi_app
 
-A new Flutter project.
+# BMI App
 
-## Getting Started
+A brief description of Bmi App and how it is built using Flutter, C++ and Dart . . .
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![ezgif com-video-to-gif (1)](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/e4d4678b-fbbd-41ff-8b79-0001a2ffce8f)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Tech Stack
+
+**Client:** Flutter, Dart, C++
+
+**IDE :** Android Studio
+
+
+## Widgets Used
+
+- TextField Widget
+- Row & Column Widget
+- Container
+- Padding, Sized Box,
+- StateFul Widget
+
