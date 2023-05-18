@@ -6,7 +6,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Math Tables Generator',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Tables Generator App',
