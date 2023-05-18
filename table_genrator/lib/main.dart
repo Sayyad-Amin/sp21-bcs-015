@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:table_genrator/splash_screen.dart';
 
 void main() {
   runApp( MyApp());
@@ -22,26 +21,25 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  void table(){
-
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Table Genrator App'),
+        title: Text('Table Generator App',style: TextStyle(fontSize: 25),),
       ),
-      body: Center(
+      body: Container(
+        color: Colors.teal.shade200,
+        width: double.infinity,
+        height: double.infinity,
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
-            TextButton(onPressed: (){
-              print("Yes clicked");
-            },style: TextButton.styleFrom(foregroundColor: Colors.teal),
-                child: Text('Please click here..',
-                  style: TextStyle(fontSize: 25),))
-
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0,top: 20.0,right: 8),
+              child: Text('Which Table you want to generate',
+                style: TextStyle(fontSize: 25),),
+            ),
+            TextField()
           ],
         ),
       )
