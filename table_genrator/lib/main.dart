@@ -32,62 +32,75 @@ class _InputScreenState extends State<InputScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Math Table Generator'),
+        title: Text('Math Table Generator',
+          style: TextStyle(fontSize: 25,
+              fontWeight: FontWeight.w600),),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Table Number: $tableNumber'),
-            Slider(
-              value: tableNumber.toDouble(),
-              min: 1,
-              max: 100,
-              onChanged: (double newValue) {
-                setState(() {
-                  tableNumber = newValue.round();
-                });
-              },
-            ),
-            Text('Starting Point: $startingPoint'),
-            Slider(
-              value: startingPoint.toDouble(),
-              min: 1,
-              max: 100,
-              onChanged: (double newValue) {
-                setState(() {
-                  startingPoint = newValue.round();
-                });
-              },
-            ),
-            Text('Ending Point: $endingPoint'),
-            Slider(
-              value: endingPoint.toDouble(),
-              min: 1,
-              max: 100,
-              onChanged: (double newValue) {
-                setState(() {
-                  endingPoint = newValue.round();
-                });
-              },
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TableScreen(
-                      tableNumber: tableNumber,
-                      startingPoint: startingPoint,
-                      endingPoint: endingPoint,
+      body: Container(
+        color: Colors.teal.shade200,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Table Number: $tableNumber',
+                style: TextStyle(fontSize: 25,
+                    fontWeight: FontWeight.w600),),
+              Slider(
+                value: tableNumber.toDouble(),
+                min: 1,
+                max: 100,
+                onChanged: (double newValue) {
+                  setState(() {
+                    tableNumber = newValue.round();
+                  });
+                },
+              ),
+              Text('Starting Point: $startingPoint',
+                  style: TextStyle(fontSize: 25,
+                  fontWeight: FontWeight.w600),),
+              Slider(
+                value: startingPoint.toDouble(),
+                min: 1,
+                max: 100,
+                onChanged: (double newValue) {
+                  setState(() {
+                    startingPoint = newValue.round();
+                  });
+                },
+              ),
+              Text('Ending Point: $endingPoint',
+                  style: TextStyle(fontSize: 25,
+                  fontWeight: FontWeight.w600),),
+              Slider(
+                value: endingPoint.toDouble(),
+                min: 1,
+                max: 100,
+                onChanged: (double newValue) {
+                  setState(() {
+                    endingPoint = newValue.round();
+                  });
+                },
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TableScreen(
+                        tableNumber: tableNumber,
+                        startingPoint: startingPoint,
+                        endingPoint: endingPoint,
+                      ),
                     ),
-                  ),
-                );
-              },
-              child: Text('Generate Table'),
-            ),
-          ],
+                  );
+                },
+                child: Text('Generate Table',
+                  style: TextStyle(fontSize: 25,
+                      fontWeight: FontWeight.w600),),
+              ),
+            ],
+          ),
         ),
       ),
     );
