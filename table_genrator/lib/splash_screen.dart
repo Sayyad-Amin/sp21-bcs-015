@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:table_genrator/main.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -10,8 +11,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, '/home');
+    Timer(Duration(seconds: 10), () {
+      Navigator.pushReplacement(context as BuildContext,
+          MaterialPageRoute(builder: (context){
+        return InputScreen();
+      }));
     });
   }
 
@@ -19,18 +23,19 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/numbers.png'),
-            fit: BoxFit.cover,
-          ),
+        color: Colors.teal.shade200,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(width: 400,
+                height: 200,
+                child: Image.asset('assets/images/table.png')),
+
+          ],
         ),
-        child: Center(
-          child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+
           ),
-        ),
-      ),
+
     );
   }
 }
