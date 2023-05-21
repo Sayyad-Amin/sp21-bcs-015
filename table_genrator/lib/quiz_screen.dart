@@ -47,11 +47,13 @@ class _QuizScreenState extends State<QuizScreen> {
   void checkAnswer(int userAnswer) {
     if (userAnswer == correctAnswer) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Correct!')),
+        SnackBar(content: Text('Correct!',style: TextStyle(fontSize: 25,
+            fontWeight: FontWeight.w600),)),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Incorrect. The correct answer is $correctAnswer.')),
+        SnackBar(content: Text('Incorrect. The correct answer is $correctAnswer.',style: TextStyle(fontSize: 25,
+            fontWeight: FontWeight.w600),)),
       );
     }
     generateQuestion();
