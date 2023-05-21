@@ -7,7 +7,8 @@ A brief description of Table_Generator App and how it is built using Flutter and
 
 ## Screenshots
 
-![table_generator](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/304ab5e7-8c3b-401b-b788-4f1cfabdca09)
+![tablegen](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/8adc39be-f0be-4483-8e8e-ec9f46e43747)
+
 
 
 # BMI App
