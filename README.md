@@ -1,14 +1,20 @@
 # SAYYAD AMIN (SP21-BCS-015)
  Fluttert Projects
  
-# Counter App
+ # Table_Generator app App
 
-A brief description of Counter App and how it is built using Flutter and Dart . . .
-
+A brief description of Table_Generator App and how it is built using Flutter and Dart . . .
 
 ## Screenshots
 
-![ezgif com-video-to-gif (5)](https://user-images.githubusercontent.com/97822048/235362334-50d999f9-afc1-4fcf-b5fd-4d95bca56825.gif)
+![table_generator](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/304ab5e7-8c3b-401b-b788-4f1cfabdca09)
+
+
+# BMI App
+
+A brief description of BMI App and how it is built using Flutter, C++ and Dart . . .
+
+![ezgif com-video-to-gif (1)](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/23640d14-77b6-4b58-a423-07e424e11579)
 
 
 # Resume App
@@ -19,6 +25,16 @@ A brief description of Resume App and how it is built using Flutter, C++ and Dar
 ## Screenshots
 
 ![ezgif com-video-to-gif (4)](https://user-images.githubusercontent.com/97822048/235362131-fd681cd8-5b43-4e4c-9788-ffe79fd2820f.gif)
+
+
+# Counter App
+
+A brief description of Counter App and how it is built using Flutter and Dart . . .
+
+
+## Screenshots
+
+![ezgif com-video-to-gif (5)](https://user-images.githubusercontent.com/97822048/235362334-50d999f9-afc1-4fcf-b5fd-4d95bca56825.gif)
 
 
 
@@ -38,11 +54,7 @@ A brief description of Dice App and how it is built using Flutter, C++ and Dart 
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/97822048/235617780-139461c6-bed6-40cc-8564-33506d93bf33.gif)
 
-# BMI App
 
-A brief description of BMI App and how it is built using Flutter, C++ and Dart . . .
-
-![ezgif com-video-to-gif (1)](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/23640d14-77b6-4b58-a423-07e424e11579)
 
 
 ## Tech Stack
