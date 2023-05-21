@@ -1,16 +1,10 @@
-# table_genrator
+# Table_genrator App
 
 A new Flutter project.
 
-## Getting Started
+A brief description of Table_Generator App and how it is built using Flutter and Dart . . .
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+![table_generator](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/304ab5e7-8c3b-401b-b788-4f1cfabdca09)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
