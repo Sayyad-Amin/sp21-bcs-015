@@ -82,10 +82,15 @@ class _QuizScreenState extends State<QuizScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: answerOptions.map((answer) {
-                  return ElevatedButton(
-                    onPressed: () => checkAnswer(answer),
-                    child: Text('$answer',style: TextStyle(fontSize: 35,
-                        fontWeight: FontWeight.w600),),
+                  return Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () => checkAnswer(answer),
+                        child: Text('$answer',style: TextStyle(fontSize: 25,
+                            fontWeight: FontWeight.w600),),
+                      ),
+                    ),
                   );
                 }).toList(),
               ),
