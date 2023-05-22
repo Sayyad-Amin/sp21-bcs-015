@@ -1,16 +1,33 @@
-# table_genrator
+# Table_Generator App
 
 A new Flutter project.
 
-## Getting Started
+A brief description of Table_Generator App and how it is built using Flutter and Dart . . .
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+![tablegen](https://github.com/Sayyad-Amin/sp21-bcs-015/assets/97822048/11c479e4-c085-4207-b2e4-158d597772eb)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech Stack
+
+## Splash Screen Added . . .
+
+## Sliders Are Added . . .
+
+## 
+
+**Client:** Flutter, Dart, C++
+
+**IDE :** Android Studio
+
+
+## Widgets Used
+
+- Card Widget
+- Row & Column Widget
+- Container
+- Padding, Sized Box, SingleChildScrollView Widget
+- Image Widget
+- Elevated Buttons
+- Stateless and Stateful Widget
