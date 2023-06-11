@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:table_genrator/age_screen.dart';
+import 'package:table_genrator/bmi_screen.dart';
 import 'package:table_genrator/main.dart';
 import 'package:table_genrator/select_question_screen.dart';
 import 'package:table_genrator/table_screen.dart';
@@ -38,6 +40,26 @@ class SelectionScreen extends StatelessWidget {
                 );
               },
               child: Text('Table Generate',style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AgeCalculatorScreen()),
+                );
+              },
+              child: Text('Age Calculate',style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BMICalculatorScreen()),
+                );
+              },
+              child: Text('BMI Calculate',style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),),
             ),
           ],
         ),
