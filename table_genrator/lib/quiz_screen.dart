@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:async';
 import 'package:table_genrator/main.dart';
 
 class QuizScreen extends StatefulWidget {
@@ -10,7 +11,7 @@ class QuizScreen extends StatefulWidget {
   QuizScreen({
     required this.tableNumber,
     required this.startingPoint,
-    required this.endingPoint,
+    required this.endingPoint, required int numberOfQuestions,
   });
 
   @override
@@ -21,11 +22,35 @@ class _QuizScreenState extends State<QuizScreen> {
   late int currentNumber;
   late int correctAnswer;
   List<int> answerOptions = [];
+  late Timer _timer;
+  int _remainingTime = 10;
 
   @override
   void initState() {
     super.initState();
     generateQuestion();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void startTimer() {
+    _remainingTime = 10;
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_remainingTime > 0) {
+          _remainingTime--;
+        } else {
+          timer.cancel();
+          generateQuestion();
+          startTimer();
+        }
+      });
+    });
   }
 
   void generateQuestion() {
@@ -45,15 +70,16 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   void checkAnswer(int userAnswer) {
+    _timer.cancel(); // Cancel the existing timer
+    startTimer(); // Start a new timer
+
     if (userAnswer == correctAnswer) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Correct!',style: TextStyle(fontSize: 25,
-            fontWeight: FontWeight.w600),)),
+        SnackBar(content: Text('Correct!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600))),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Incorrect. The correct answer is $correctAnswer.',style: TextStyle(fontSize: 25,
-            fontWeight: FontWeight.w600),)),
+        SnackBar(content: Text('Incorrect. The correct answer is $correctAnswer.', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600))),
       );
     }
     generateQuestion();
@@ -67,16 +93,26 @@ class _QuizScreenState extends State<QuizScreen> {
             fontWeight: FontWeight.w600),),
       ),
       body: Container(
-        color: Colors.teal.shade200,
+        decoration: BoxDecoration(gradient: LinearGradient(
+            colors: [
+              Colors.purple.shade200,
+              Colors.teal.shade200
+            ]
+        )),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
+                'Time remaining: $_remainingTime',
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(height: 10),
+              Text(
                 '${widget.tableNumber} x $currentNumber = ?',
-                  style: TextStyle(fontSize: 35,
-                      fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 35,
+                    fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 30),
               Row(

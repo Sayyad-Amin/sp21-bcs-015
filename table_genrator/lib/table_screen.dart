@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:table_genrator/select_question_screen.dart';
 import 'quiz_screen.dart';
 
 class TableScreen extends StatelessWidget {
@@ -29,8 +30,12 @@ class TableScreen extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),
-                        color: Colors.teal.shade200),
+                    decoration: BoxDecoration(gradient: LinearGradient(
+                        colors: [
+                          Colors.purple.shade200,
+                          Colors.teal.shade200
+                        ]
+                    )),
                     child: ListTile(
                       title: Center(
                         child: Text(
@@ -51,15 +56,13 @@ class TableScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizScreen(
-                      tableNumber: tableNumber,
-                      startingPoint: startingPoint,
-                      endingPoint: endingPoint,
+                    builder: (context) => SelectQuestionsScreen(
+
                     ),
                   ),
                 );
               },
-              child: Text('Generate Quiz',style: TextStyle(fontSize: 25,
+              child: Text('Generate Quiz',style: TextStyle(fontSize: 35,
                   fontWeight: FontWeight.w600),),
             ),
           ),

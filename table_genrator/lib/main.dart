@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:table_genrator/quiz_screen.dart';
 import 'package:table_genrator/splash_screen.dart';
 import 'package:table_genrator/table_screen.dart';
 
@@ -13,7 +14,13 @@ class MyApp extends StatelessWidget {
       title: 'Math Table Generator',
       theme: ThemeData(
         primarySwatch: Colors.purple,
+        appBarTheme: AppBarTheme(
+
+          backgroundColor: Colors.purple.shade300,
+        )
+
       ),
+
       home: SplashScreen(),
     );
   }
@@ -37,7 +44,12 @@ class _InputScreenState extends State<InputScreen> {
               fontWeight: FontWeight.w600),),
       ),
       body: Container(
-        color: Colors.teal.shade200,
+        decoration: BoxDecoration(gradient: LinearGradient(
+            colors: [
+              Colors.purple.shade200,
+              Colors.teal.shade200
+            ]
+        )),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

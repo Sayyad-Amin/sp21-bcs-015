@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "969745063885",
+    "project_id": "table-generator-app",
+    "storage_bucket": "table-generator-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969745063885:android:1bc3e6203a497a8a2d2e84",
+        "android_client_info": {
+          "package_name": "com.example.table_genrator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969745063885-cc9f2b7o6g52ln5qrkevknso86l6tj77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiREZV9mIFOemf_wO2qXDRcMjjaUQn5wQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969745063885-cc9f2b7o6g52ln5qrkevknso86l6tj77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
