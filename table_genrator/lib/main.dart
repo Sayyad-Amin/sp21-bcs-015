@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Math Table Generator',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.purple,
       ),
       home: SplashScreen(),
     );
