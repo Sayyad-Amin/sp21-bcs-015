@@ -27,6 +27,7 @@ class ResultsScreen extends StatelessWidget {
             children: [
               Text('Correct Answers: $correctAnswers', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600)),
               Text('Incorrect Answers: $incorrectAnswers', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600)),
+              SizedBox(height: 20,),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);

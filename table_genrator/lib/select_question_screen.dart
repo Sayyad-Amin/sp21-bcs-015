@@ -9,6 +9,7 @@ class SelectQuestionsScreen extends StatefulWidget {
 class _SelectQuestionsScreenState extends State<SelectQuestionsScreen> {
   double _numberOfQuestions = 5;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,9 +50,9 @@ class _SelectQuestionsScreenState extends State<SelectQuestionsScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => QuizScreen(
-                      tableNumber: 5, // Pass your tableNumber here
-                      startingPoint: 1, // Pass your startingPoint here
-                      endingPoint: 10, // Pass your endingPoint here
+                      tableNumber: 7, // Pass your tableNumber here
+                      startingPoint: 5, // Pass your startingPoint here
+                      endingPoint: 15, // Pass your endingPoint here
                       numberOfQuestions: _numberOfQuestions.round(),
                     ),
                   ),
