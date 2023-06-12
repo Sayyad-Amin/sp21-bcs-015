@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
 import 'package:table_genrator/main.dart';
+import 'package:table_genrator/result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   final int tableNumber;
@@ -69,20 +70,36 @@ class _QuizScreenState extends State<QuizScreen> {
     return options.toList()..shuffle();
   }
 
+  int _questionsAnswered = 0;
+  int _correctAnswers = 0;
+  int _incorrectAnswers = 0;
+
+// Modify the checkAnswer function
   void checkAnswer(int userAnswer) {
     _timer.cancel(); // Cancel the existing timer
-    startTimer(); // Start a new timer
 
     if (userAnswer == correctAnswer) {
+      _correctAnswers++;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Correct!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600))),
       );
     } else {
+      _incorrectAnswers++;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Incorrect. The correct answer is $correctAnswer.', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600))),
       );
     }
-    generateQuestion();
+
+    _questionsAnswered++;
+
+    if (_questionsAnswered >= 5) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ResultsScreen(correctAnswers: _correctAnswers, incorrectAnswers: _incorrectAnswers);
+      }));
+    } else {
+      generateQuestion();
+      startTimer(); // Start a new timer
+    }
   }
 
   @override
