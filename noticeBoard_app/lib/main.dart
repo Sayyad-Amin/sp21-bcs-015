@@ -93,6 +93,7 @@ class _NoticeBoardAppState extends State<NoticeBoardApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Notice Board App',
       theme: ThemeData(
         primarySwatch: Colors.teal,
@@ -141,88 +142,98 @@ class UserScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('User Screen'),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: users.length,
-              itemBuilder: (context, index) {
-                User user = users[index];
-                return ListTile(
-                  title: Text(user.role),
-                  subtitle: Text('ID: ${user.id}'),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: user.isVisible
-                            ? Icon(Icons.visibility)
-                            : Icon(Icons.visibility_off),
-                        onPressed: () {
-                          onToggleVisibility(index);
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.delete),
-                        onPressed: () {
-                          onDeleteUser(index);
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.edit),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return EditUserDialog(
-                                user: user,
-                                onEditUser: (user) {
-                                  onEditUser(user, index);
-                                },
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              },
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.teal,
+              Colors.green
+            ]
+          )
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: users.length,
+                itemBuilder: (context, index) {
+                  User user = users[index];
+                  return ListTile(
+                    title: Text(user.role),
+                    subtitle: Text('ID: ${user.id}'),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: user.isVisible
+                              ? Icon(Icons.visibility)
+                              : Icon(Icons.visibility_off),
+                          onPressed: () {
+                            onToggleVisibility(index);
+                          },
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.delete),
+                          onPressed: () {
+                            onDeleteUser(index);
+                          },
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.edit),
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return EditUserDialog(
+                                  user: user,
+                                  onEditUser: (user) {
+                                    onEditUser(user, index);
+                                  },
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: ElevatedButton(
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AddUserDialog(
+                        onAddUser: onAddUser,
+                      );
+                    },
+                  );
+                },
+                child: Text('Add User'),
+              ),
+            ),
+            ElevatedButton(
               onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AddUserDialog(
-                      onAddUser: onAddUser,
-                    );
-                  },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AdminNoticesScreen(
+                      notices: notices,
+                      onAddNotice: onAddNotice,
+                      onDeleteNotice: onDeleteNotice,
+                      onUpdateNotice: onUpdateNotice,
+                    ),
+                  ),
                 );
               },
-              child: Text('Add User'),
+              child: Text('Admin Notices'),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AdminNoticesScreen(
-                    notices: notices,
-                    onAddNotice: onAddNotice,
-                    onDeleteNotice: onDeleteNotice,
-                    onUpdateNotice: onUpdateNotice,
-                  ),
-                ),
-              );
-            },
-            child: Text('Admin Notices'),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
