@@ -1,115 +1,666 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(NoticeBoardApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class User {
+  String role;
+  String id;
+  String password;
+  bool isVisible;
 
-  // This widget is the root of your application.
+  User({
+    required this.role,
+    required this.id,
+    required this.password,
+    this.isVisible = true,
+  });
+}
+
+class Notice {
+  String title;
+  String description;
+
+  Notice({
+    required this.title,
+    required this.description,
+  });
+}
+
+class NoticeBoardApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+  _NoticeBoardAppState createState() => _NoticeBoardAppState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class _NoticeBoardAppState extends State<NoticeBoardApp> {
+  List<User> users = [
+    User(role: 'Doo', id: 'doo123', password: 'doo@123'),
+    User(role: 'Teacher', id: 'teacher123', password: 'teacher@123'),
+    User(
+        role: 'FYP Committee Head', id: 'fyphead123', password: 'fyphead@123'),
+    User(
+        role: 'Time Table Incharge',
+        id: 'timetable123',
+        password: 'timetable@123'),
+  ];
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+  List<Notice> notices = [];
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
+  void addUser(User user) {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      users.add(user);
+    });
+  }
+
+  void deleteUser(int index) {
+    setState(() {
+      users.removeAt(index);
+    });
+  }
+
+  void editUser(User user, int index) {
+    setState(() {
+      users[index] = user;
+    });
+  }
+
+  void toggleVisibility(int index) {
+    setState(() {
+      User user = users[index];
+      user.isVisible = !user.isVisible;
+    });
+  }
+
+  void addNotice(Notice notice) {
+    setState(() {
+      notices.add(notice);
+    });
+  }
+
+  void deleteNotice(int index) {
+    setState(() {
+      notices.removeAt(index);
+    });
+  }
+
+  void updateNotice(Notice notice, int index) {
+    setState(() {
+      notices[index] = notice;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    return MaterialApp(
+      title: 'Notice Board App',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
+      home: UserScreen(
+        users: users,
+        notices: notices,
+        onAddUser: addUser,
+        onDeleteUser: deleteUser,
+        onEditUser: editUser,
+        onToggleVisibility: toggleVisibility,
+        onAddNotice: addNotice,
+        onDeleteNotice: deleteNotice,
+        onUpdateNotice: updateNotice,
+      ),
+    );
+  }
+}
+
+class UserScreen extends StatelessWidget {
+  final List<User> users;
+  final List<Notice> notices;
+  final Function(User) onAddUser;
+  final Function(int) onDeleteUser;
+  final Function(User, int) onEditUser;
+  final Function(int) onToggleVisibility;
+  final Function(Notice) onAddNotice;
+  final Function(int) onDeleteNotice;
+  final Function(Notice, int) onUpdateNotice;
+
+  UserScreen({
+    required this.users,
+    required this.notices,
+    required this.onAddUser,
+    required this.onDeleteUser,
+    required this.onEditUser,
+    required this.onToggleVisibility,
+    required this.onAddNotice,
+    required this.onDeleteNotice,
+    required this.onUpdateNotice,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text('User Screen'),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: users.length,
+              itemBuilder: (context, index) {
+                User user = users[index];
+                return ListTile(
+                  title: Text(user.role),
+                  subtitle: Text('ID: ${user.id}'),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        icon: user.isVisible
+                            ? Icon(Icons.visibility)
+                            : Icon(Icons.visibility_off),
+                        onPressed: () {
+                          onToggleVisibility(index);
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () {
+                          onDeleteUser(index);
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.edit),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return EditUserDialog(
+                                user: user,
+                                onEditUser: (user) {
+                                  onEditUser(user, index);
+                                },
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AddUserDialog(
+                      onAddUser: onAddUser,
+                    );
+                  },
+                );
+              },
+              child: Text('Add User'),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AdminNoticesScreen(
+                    notices: notices,
+                    onAddNotice: onAddNotice,
+                    onDeleteNotice: onDeleteNotice,
+                    onUpdateNotice: onUpdateNotice,
+                  ),
+                ),
+              );
+            },
+            child: Text('Admin Notices'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AddUserDialog extends StatefulWidget {
+  final Function(User) onAddUser;
+
+  AddUserDialog({required this.onAddUser});
+
+  @override
+  _AddUserDialogState createState() => _AddUserDialogState();
+}
+
+class _AddUserDialogState extends State<AddUserDialog> {
+  final _formKey = GlobalKey<FormState>();
+  late String _role;
+  late String _id;
+  late String _password;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Add User'),
+      content: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Role'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a role';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _role = value!;
+              },
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'ID'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter an ID';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _id = value!;
+              },
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Password'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a password';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _password = value!;
+              },
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              _formKey.currentState!.save();
+              User user = User(
+                role: _role,
+                id: _id,
+                password: _password,
+              );
+              widget.onAddUser(user);
+              Navigator.pop(context);
+            }
+          },
+          child: Text('Add'),
+        ),
+      ],
+    );
+  }
+}
+
+class EditUserDialog extends StatefulWidget {
+  final User user;
+  final Function(User) onEditUser;
+
+  EditUserDialog({required this.user, required this.onEditUser});
+
+  @override
+  _EditUserDialogState createState() => _EditUserDialogState();
+}
+
+class _EditUserDialogState extends State<EditUserDialog> {
+  final _formKey = GlobalKey<FormState>();
+  late String _role;
+  late String _id;
+  late String _password;
+
+  @override
+  void initState() {
+    super.initState();
+    _role = widget.user.role;
+    _id = widget.user.id;
+    _password = widget.user.password;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Edit User'),
+      content: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextFormField(
+              initialValue: _role,
+              decoration: InputDecoration(labelText: 'Role'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a role';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _role = value!;
+              },
+            ),
+            TextFormField(
+              initialValue: _id,
+              decoration: InputDecoration(labelText: 'ID'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter an ID';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _id = value!;
+              },
+            ),
+            TextFormField(
+              initialValue: _password,
+              decoration: InputDecoration(labelText: 'Password'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a password';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _password = value!;
+              },
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              _formKey.currentState!.save();
+              User updatedUser = User(
+                role: _role,
+                id: _id,
+                password: _password,
+                isVisible: widget.user.isVisible,
+              );
+              widget.onEditUser(updatedUser);
+              Navigator.pop(context);
+            }
+          },
+          child: Text('Save'),
+        ),
+      ],
+    );
+  }
+}
+
+class AdminNoticesScreen extends StatelessWidget {
+  final List<Notice> notices;
+  final Function(Notice) onAddNotice;
+  final Function(int) onDeleteNotice;
+  final Function(Notice, int) onUpdateNotice;
+
+  AdminNoticesScreen({
+    required this.notices,
+    required this.onAddNotice,
+    required this.onDeleteNotice,
+    required this.onUpdateNotice,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Admin Notices'),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: notices.length,
+              itemBuilder: (context, index) {
+                Notice notice = notices[index];
+                return ListTile(
+                  title: Text(notice.title),
+                  subtitle: Text(notice.description),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () {
+                          onDeleteNotice(index);
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.edit),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return EditNoticeDialog(
+                                notice: notice,
+                                onUpdateNotice: (notice) {
+                                  onUpdateNotice(notice, index);
+                                },
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AddNoticeDialog(
+                      onAddNotice: onAddNotice,
+                    );
+                  },
+                );
+              },
+              child: Text('Add Notice'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AddNoticeDialog extends StatefulWidget {
+  final Function(Notice) onAddNotice;
+
+  AddNoticeDialog({required this.onAddNotice});
+
+  @override
+  _AddNoticeDialogState createState() => _AddNoticeDialogState();
+}
+
+class _AddNoticeDialogState extends State<AddNoticeDialog> {
+  final _formKey = GlobalKey<FormState>();
+  late String _title;
+  late String _description;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Add Notice'),
+      content: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Title'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a title';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _title = value!;
+              },
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Description'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a description';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _description = value!;
+              },
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              _formKey.currentState!.save();
+              Notice notice = Notice(
+                title: _title,
+                description: _description,
+              );
+              widget.onAddNotice(notice);
+              Navigator.pop(context);
+            }
+          },
+          child: Text('Add'),
+        ),
+      ],
+    );
+  }
+}
+
+class EditNoticeDialog extends StatefulWidget {
+  final Notice notice;
+  final Function(Notice) onUpdateNotice;
+
+  EditNoticeDialog({required this.notice, required this.onUpdateNotice});
+
+  @override
+  _EditNoticeDialogState createState() => _EditNoticeDialogState();
+}
+
+class _EditNoticeDialogState extends State<EditNoticeDialog> {
+  final _formKey = GlobalKey<FormState>();
+  late String _title;
+  late String _description;
+
+  @override
+  void initState() {
+    super.initState();
+    _title = widget.notice.title;
+    _description = widget.notice.description;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Edit Notice'),
+      content: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextFormField(
+              initialValue: _title,
+              decoration: InputDecoration(labelText: 'Title'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a title';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _title = value!;
+              },
+            ),
+            TextFormField(
+              initialValue: _description,
+              decoration: InputDecoration(labelText: 'Description'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a description';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _description = value!;
+              },
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              _formKey.currentState!.save();
+              Notice updatedNotice = Notice(
+                title: _title,
+                description: _description,
+              );
+              widget.onUpdateNotice(updatedNotice);
+              Navigator.pop(context);
+            }
+          },
+          child: Text('Save'),
+        ),
+      ],
     );
   }
 }
