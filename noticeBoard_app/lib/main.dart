@@ -146,8 +146,9 @@ class UserScreen extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.teal,
-              Colors.green
+              Colors.teal.shade200,
+              Colors.purple.shade200,
+
             ]
           )
         ),
@@ -230,7 +231,10 @@ class UserScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('Admin Notices'),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Admin Notices'),
+              ),
             ),
           ],
         ),
@@ -256,75 +260,86 @@ class _AddUserDialogState extends State<AddUserDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('Add User'),
-      content: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Role'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a role';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _role = value!;
-              },
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'ID'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter an ID';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _id = value!;
-              },
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Password'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a password';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _password = value!;
-              },
-            ),
-          ],
-        ),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Colors.teal.shade200,
+                Colors.purple.shade200,
+
+              ]
+          )
       ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Cancel'),
+      child: AlertDialog(
+        title: Text('Add User'),
+        content: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Role'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a role';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _role = value!;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'ID'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter an ID';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _id = value!;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Password'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a password';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _password = value!;
+                },
+              ),
+            ],
+          ),
         ),
-        ElevatedButton(
-          onPressed: () {
-            if (_formKey.currentState!.validate()) {
-              _formKey.currentState!.save();
-              User user = User(
-                role: _role,
-                id: _id,
-                password: _password,
-              );
-              widget.onAddUser(user);
+        actions: [
+          TextButton(
+            onPressed: () {
               Navigator.pop(context);
-            }
-          },
-          child: Text('Add'),
-        ),
-      ],
+            },
+            child: Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                User user = User(
+                  role: _role,
+                  id: _id,
+                  password: _password,
+                );
+                widget.onAddUser(user);
+                Navigator.pop(context);
+              }
+            },
+            child: Text('Add'),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -355,79 +370,90 @@ class _EditUserDialogState extends State<EditUserDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('Edit User'),
-      content: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextFormField(
-              initialValue: _role,
-              decoration: InputDecoration(labelText: 'Role'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a role';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _role = value!;
-              },
-            ),
-            TextFormField(
-              initialValue: _id,
-              decoration: InputDecoration(labelText: 'ID'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter an ID';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _id = value!;
-              },
-            ),
-            TextFormField(
-              initialValue: _password,
-              decoration: InputDecoration(labelText: 'Password'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a password';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _password = value!;
-              },
-            ),
-          ],
-        ),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Colors.teal.shade200,
+                Colors.purple.shade200,
+
+              ]
+          )
       ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Cancel'),
+      child: AlertDialog(
+        title: Text('Edit User'),
+        content: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                initialValue: _role,
+                decoration: InputDecoration(labelText: 'Role'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a role';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _role = value!;
+                },
+              ),
+              TextFormField(
+                initialValue: _id,
+                decoration: InputDecoration(labelText: 'ID'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter an ID';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _id = value!;
+                },
+              ),
+              TextFormField(
+                initialValue: _password,
+                decoration: InputDecoration(labelText: 'Password'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a password';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _password = value!;
+                },
+              ),
+            ],
+          ),
         ),
-        ElevatedButton(
-          onPressed: () {
-            if (_formKey.currentState!.validate()) {
-              _formKey.currentState!.save();
-              User updatedUser = User(
-                role: _role,
-                id: _id,
-                password: _password,
-                isVisible: widget.user.isVisible,
-              );
-              widget.onEditUser(updatedUser);
+        actions: [
+          TextButton(
+            onPressed: () {
               Navigator.pop(context);
-            }
-          },
-          child: Text('Save'),
-        ),
-      ],
+            },
+            child: Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                User updatedUser = User(
+                  role: _role,
+                  id: _id,
+                  password: _password,
+                  isVisible: widget.user.isVisible,
+                );
+                widget.onEditUser(updatedUser);
+                Navigator.pop(context);
+              }
+            },
+            child: Text('Save'),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -451,64 +477,75 @@ class AdminNoticesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Admin Notices'),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: notices.length,
-              itemBuilder: (context, index) {
-                Notice notice = notices[index];
-                return ListTile(
-                  title: Text(notice.title),
-                  subtitle: Text(notice.description),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.delete),
-                        onPressed: () {
-                          onDeleteNotice(index);
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.edit),
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return EditNoticeDialog(
-                                notice: notice,
-                                onUpdateNotice: (notice) {
-                                  onUpdateNotice(notice, index);
-                                },
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              },
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [
+                  Colors.teal.shade200,
+                  Colors.purple.shade200,
+
+                ]
+            )
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: notices.length,
+                itemBuilder: (context, index) {
+                  Notice notice = notices[index];
+                  return ListTile(
+                    title: Text(notice.title),
+                    subtitle: Text(notice.description),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.delete),
+                          onPressed: () {
+                            onDeleteNotice(index);
+                          },
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.edit),
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return EditNoticeDialog(
+                                  notice: notice,
+                                  onUpdateNotice: (notice) {
+                                    onUpdateNotice(notice, index);
+                                  },
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AddNoticeDialog(
-                      onAddNotice: onAddNotice,
-                    );
-                  },
-                );
-              },
-              child: Text('Add Notice'),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AddNoticeDialog(
+                        onAddNotice: onAddNotice,
+                      );
+                    },
+                  );
+                },
+                child: Text('Add Notice'),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -530,62 +567,73 @@ class _AddNoticeDialogState extends State<AddNoticeDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('Add Notice'),
-      content: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Title'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a title';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _title = value!;
-              },
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Description'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a description';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _description = value!;
-              },
-            ),
-          ],
-        ),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Colors.teal.shade200,
+                Colors.purple.shade200,
+
+              ]
+          )
       ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Cancel'),
+      child: AlertDialog(
+        title: Text('Add Notice'),
+        content: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Title'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a title';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _title = value!;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Description'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a description';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _description = value!;
+                },
+              ),
+            ],
+          ),
         ),
-        ElevatedButton(
-          onPressed: () {
-            if (_formKey.currentState!.validate()) {
-              _formKey.currentState!.save();
-              Notice notice = Notice(
-                title: _title,
-                description: _description,
-              );
-              widget.onAddNotice(notice);
+        actions: [
+          TextButton(
+            onPressed: () {
               Navigator.pop(context);
-            }
-          },
-          child: Text('Add'),
-        ),
-      ],
+            },
+            child: Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                Notice notice = Notice(
+                  title: _title,
+                  description: _description,
+                );
+                widget.onAddNotice(notice);
+                Navigator.pop(context);
+              }
+            },
+            child: Text('Add'),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -614,64 +662,75 @@ class _EditNoticeDialogState extends State<EditNoticeDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('Edit Notice'),
-      content: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextFormField(
-              initialValue: _title,
-              decoration: InputDecoration(labelText: 'Title'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a title';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _title = value!;
-              },
-            ),
-            TextFormField(
-              initialValue: _description,
-              decoration: InputDecoration(labelText: 'Description'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a description';
-                }
-                return null;
-              },
-              onSaved: (value) {
-                _description = value!;
-              },
-            ),
-          ],
-        ),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Colors.teal.shade200,
+                Colors.purple.shade200,
+
+              ]
+          )
       ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Cancel'),
+      child: AlertDialog(
+        title: Text('Edit Notice'),
+        content: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                initialValue: _title,
+                decoration: InputDecoration(labelText: 'Title'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a title';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _title = value!;
+                },
+              ),
+              TextFormField(
+                initialValue: _description,
+                decoration: InputDecoration(labelText: 'Description'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a description';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _description = value!;
+                },
+              ),
+            ],
+          ),
         ),
-        ElevatedButton(
-          onPressed: () {
-            if (_formKey.currentState!.validate()) {
-              _formKey.currentState!.save();
-              Notice updatedNotice = Notice(
-                title: _title,
-                description: _description,
-              );
-              widget.onUpdateNotice(updatedNotice);
+        actions: [
+          TextButton(
+            onPressed: () {
               Navigator.pop(context);
-            }
-          },
-          child: Text('Save'),
-        ),
-      ],
+            },
+            child: Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                Notice updatedNotice = Notice(
+                  title: _title,
+                  description: _description,
+                );
+                widget.onUpdateNotice(updatedNotice);
+                Navigator.pop(context);
+              }
+            },
+            child: Text('Save'),
+          ),
+        ],
+      ),
     );
   }
 }
